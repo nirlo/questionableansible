@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  postgres:
+    image: postgres
+
+  ansible:
+    container_name: answeransible
+    build: 
+      context: .
+      dockerfile: ./ansible/Dockerfile
+
+  django:
+    container_name: questionableansible
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    depends_on:
+      - postgres
+      - ansible
+
+volumes:
+  data:
