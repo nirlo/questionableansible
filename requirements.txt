@@ -4,3 +4,4 @@ Django==2.0.10
 djangorestframework==3.8.2
 ipython
 requests
+django-bootstrap3

@@ -1,0 +1,30 @@
+{% extends 'bootstrap.html' %}
+
+{% load bootstrap3 %}
+
+{% block bootstrap3_content %}
+    <div class="container">
+        <h1>{% block title %}(input later){% endblock %}</h1>
+
+        <p>
+            <a href="{% if user.is_authenticated %}
+                {% url 'questionableansible:main' %}
+                {% else %}
+                {% url 'homepage' %}
+                {% endif %}">Home</a>
+            {% if user.is_authenticated %}
+            <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+            {% else %}
+            <a href="{% url 'accounts:signup' %}">Signup</a>
+            <a href="{% url 'accounts:login' %}">Login</a>
+            {% endif %}
+        </p>
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+        {% block content %}(no content){% endblock %}
+    </div>
+
+{% endblock %}

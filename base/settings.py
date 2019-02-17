@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 
+    # style apps
+    'bootstrap3',
 
     # Project apps
+    'accounts', 
+    'questionableansible',
     
 ]
 

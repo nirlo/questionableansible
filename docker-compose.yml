@@ -5,10 +5,7 @@ services:
     image: postgres
 
   ansible:
-    container_name: answeransible
-    build: 
-      context: .
-      dockerfile: ./ansible/Dockerfile
+    image: ansible/ansible:default
 
   django:
     container_name: questionableansible

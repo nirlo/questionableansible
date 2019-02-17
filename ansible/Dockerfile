@@ -1,6 +1,5 @@
 FROM alpine:3.7
 
-ENV ANSIBLE_VERSION 2.5.0
 
 ENV BUILD_PACKAGES \
     bash \
@@ -9,12 +8,12 @@ ENV BUILD_PACKAGES \
     openssh-client \
     sshpass \
     git \ 
-    python \
+    python3 \
     py-boto \
     py-dateutil \
     py-httplib2 \
-    py-jinga2 \
-    pt-paramiko \
+    py-jinja2 \
+    py-paramiko \
     py-pip \
     py-yaml \
     ca-certificates
@@ -37,11 +36,12 @@ RUN set -x && \
     pip install --upgrade pip && \
     pip install python-keyczar docker-py && \
     \
-    ECHO "==> adding necessary gcp packages..." && \
-    pip install requests google-auth \
+    echo "==> adding necessary gcp packages..." && \
+    pip install requests \
+    pip install google-auth && \
     \
     echo "==> Installing Ansible..."  && \
-    pip install ansible==${ANSIBLE_VERSION} && \
+    pip install ansible && \
     \
     echo "==> Cleaning up..."  && \
     apk del build-dependencies && \
