@@ -10,8 +10,8 @@ Have to set up services on all of your servers and don't want to fight with conf
 
 ## tasks
 
-- [ ] Build base form structure for GCE instances
-- [ ] Build front end input for GCP credentials
+- [X] Build base form structure for GCE instances
+- [X] Build front end input for GCP credentials
 - [ ] Build ansible playbook constructor
 - [ ] Build connector to Ansible container
 - [ ] Issue commands to Ansible container
