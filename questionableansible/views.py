@@ -16,8 +16,8 @@ def Create(request):
     if request.method == "POST":
         form = forms.GCEInstance(request.POST)
         if form.is_valid():
-            data = form.cleaned_data()
-            data.update({'credentials':GCPInfo.objects.get(id=1)})
+            data = form.cleaned_data
+            data.update({'credentials':GCPInfo.objects.all()})
 
             result_info = AnswerableAnsible.answerableansible(data) 
             # This is where it will serialize the information and send

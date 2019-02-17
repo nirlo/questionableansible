@@ -4,11 +4,6 @@ services:
   postgres:
     image: postgres
 
-  ansible:
-    image: ansible/ansible:default
-    volumes: 
-      - data:/main/temp
-
   django:
     container_name: questionableansible
     build:
@@ -23,7 +18,11 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
     depends_on:
       - postgres
-      - ansible
+
+  ansible:
+    image: ansible/ansible:default
+    volumes: 
+      - data:/main/temp
 
 volumes:
   data:
