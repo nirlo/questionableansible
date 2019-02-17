@@ -5,6 +5,13 @@
 {% block title %}Questionable Ansible{% endblock %}
 
 {% block content %}
-
+    <form class="logout-link" action="{% url 'questionableansible:create' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">create</button>
+    </form>
+    <form class="logout-link" action="{% url 'questionableansible:credentials' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">credentials</button>   
+    </form>
 
 {% endblock %}

@@ -6,6 +6,8 @@ services:
 
   ansible:
     image: ansible/ansible:default
+    volumes: 
+      - data:/main/temp
 
   django:
     container_name: questionableansible
@@ -16,7 +18,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/code
+      - .:/main/code
+      - data:/main/temp
     depends_on:
       - postgres
       - ansible
