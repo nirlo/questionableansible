@@ -12,8 +12,8 @@ Have to set up services on all of your servers and don't want to fight with conf
 
 - [X] Build base form structure for GCE instances
 - [X] Build front end input for GCP credentials
-- [ ] Build ansible playbook constructor
-- [ ] Build connector to Ansible container
-- [ ] Issue commands to Ansible container
+- [X] Build ansible playbook constructor
+- [X] Build connector to Ansible container
+- [X] Issue commands to Ansible container
 - [ ] gather Ansible output information
 - [ ] Display output information

@@ -5,3 +5,5 @@ djangorestframework==3.8.2
 ipython
 requests
 django-bootstrap3
+jinja2
+paramiko

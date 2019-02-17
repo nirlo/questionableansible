@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.Models import User
+from django.contrib.auth.models import User
 import requests
 from . import forms
 from .models import GCPInfo
+from .answerableansible import AnswerableAnsible
 
 # Create your views here.
 @login_required(login_url="/accounts/login/")
@@ -18,7 +19,7 @@ def Create(request):
             data = form.cleaned_data()
             data.update({'credentials':GCPInfo.objects.get(id=1)})
 
-            result_info = {}
+            result_info = AnswerableAnsible.answerableansible(data) 
             # This is where it will serialize the information and send
             # to answerableansible
             return redirect('questionableansible:main')
@@ -33,8 +34,6 @@ def Credentials(request):
         form = forms.GCPInfo(request.POST)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.User = request.user 
-            instance.save()
             return redirect('questionableansible:main')
     else:
         form = forms.GCPInfo()
